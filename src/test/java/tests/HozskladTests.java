@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.MainPage;
-import utils.WebDriverUtils;
+import pages.Register;
 
 import java.time.Duration;
 
@@ -12,6 +12,8 @@ public class HozskladTests {
 
     private static WebDriver driver;
     private static MainPage mainPage;
+    private static Register register;
+
 
     @BeforeAll
     public static void setup() {
@@ -19,6 +21,7 @@ public class HozskladTests {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         mainPage = new MainPage(driver);
+        register = new Register(driver);
         mainPage.open();
     }
 

@@ -19,7 +19,7 @@ public class MainPage {
     @FindBy(xpath = "//button[contains(text(), 'Каталог')]")
     private WebElement catalogButton;
 
-    @FindBy(xpath = "//button[contains(text(), 'Зберегти')]")  // Добавили локатор кнопки
+    @FindBy(xpath = "//button[contains(text(), 'Зберегти')]")
     private WebElement saveButton;
 
     @FindBy(xpath = "//a[@href=\"/ua/avtotovary\"]/div[contains(@class, 'left_menu__categories_img_wrapper')]")

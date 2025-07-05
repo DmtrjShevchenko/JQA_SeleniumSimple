@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import pages.MainPage;
 
 public class WebDriverUtils {
 
@@ -28,6 +27,14 @@ public class WebDriverUtils {
     public static void hoverOverElement(WebDriver driver, WebElement element) {
         new Actions(driver).moveToElement(element).perform();
         System.out.println("Наведение на элемент: " + element.getText());
+    }
+
+    public static void inputByPlaceholder(WebDriver driver, String placeholder, String text) {
+        String xpath = String.format("//input[@placeholder=\"%s\"]", placeholder);
+        WebElement field = driver.findElement(By.xpath(xpath));
+        field.clear();
+        field.sendKeys(text);
+        System.out.printf("Введено значеня '%s' у поле з placeholder='%s'%n", text, placeholder);
     }
 
 }
