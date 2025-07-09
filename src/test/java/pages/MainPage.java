@@ -22,6 +22,11 @@ public class MainPage {
     @FindBy(xpath = "//button[contains(text(), 'Зберегти')]")
     private WebElement saveButton;
 
+    @FindBy(xpath = "//*[@id=\"chooseLanguageSubmit\"]")
+    private WebElement saveButtonById;
+
+
+
     @FindBy(xpath = "//a[@href=\"/ua/avtotovary\"]/div[contains(@class, 'left_menu__categories_img_wrapper')]")
     private  WebElement categoryButton;
 
@@ -65,6 +70,11 @@ public class MainPage {
     public void clickSaveLng() {
         saveButton.click();
         System.out.println("Кнопка Зберегти натиснута...");
+    }
+
+    public void clickSaveLngById() {
+        saveButtonById.click();
+        System.out.println("Кнопка Зберегти по ID натиснута...");  //*[@id="chooseLanguageSubmit"]
     }
 
     public void waitSeconds(int seconds) {

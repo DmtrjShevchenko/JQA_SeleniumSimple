@@ -1,6 +1,8 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.WebDriverUtils;
 
@@ -10,6 +12,15 @@ import static utils.WebDriverUtils.inputByPlaceholder;
 public class Register {
 
     private static WebDriver driver;
+
+    @FindBy(xpath = "//*[@id=\"green-btn\"]")
+    private WebElement registerButton;
+
+    @FindBy(xpath = "//a[normalize-space(.)='Кабінет']")
+    private WebElement accountButton;
+
+    @FindBy(xpath = "//button[contains(@class, 'green-btn')]")
+    private WebElement loginButton;
 
     public Register (WebDriver driver) {
         this.driver = driver;
@@ -48,8 +59,42 @@ public class Register {
         inputByPlaceholder(driver, "Введіть пароль ще раз", password);
     }
 
-    public void clickRegisterButton(String buttonName) {
-        clickButtonByText(driver, buttonName);
+    public void inputEmailForLogin(String userMail) {
+        inputByPlaceholder(driver, "Введіть Ваш E-Mail", userMail);
     }
+
+    public void inputPassForLogin(String userPass) {
+        inputByPlaceholder(driver, "Введіть Ваш пароль", userPass);
+    }
+
+    public void login (String userMail, String userPass){
+        inputEmailForLogin(userMail);
+        inputPassForLogin(userPass);
+        System.out.println("Введено дані для авторизації");
+        loginButton.click();
+        System.out.println("Натиснуто кнопку Увійти");
+    }
+
+    public void clickRegisterButton() {
+        registerButton.click();
+        System.out.println("Кнопка Зареєструватися натиснута...");
+    }
+
+    public void inputFieldsForRegister (String Name, String SName, String SecondName, String mail, String phoneNumber, String password){
+        inputUserName(Name);
+        inputUserSName(SName);
+        inputUserSecondName(SecondName);
+        inputUserEmail(mail);
+        inputUserPhoneNumber(phoneNumber);
+        inputUserPassword(password);
+        inputUserSPassword(password);
+        System.out.println("Всі поля для реєстрації заповнено");
+    }
+
+    public void clickAccount() {
+        accountButton.click();
+    }
+
+
 
 }
