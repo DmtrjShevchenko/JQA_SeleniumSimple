@@ -55,13 +55,7 @@ public class HozskladTests {
         register.openRegister();
         mainPage.waitSeconds(2);
         mainPage.clickSaveLngById();
-        register.inputFieldsForRegister("Іван",
-                                        "Іванов",
-                                    "Іванович",
-                                          "gfsdsd@mail.com",
-                                    "123456789",
-                                        "qa1234"
-        );
+        register.inputFieldsForRegister("Іван", "Іванов", "Іванович", "gfsdsd@mail.com", "123456789", "qa1234" );
         register.clickRegisterButton();
         mainPage.waitSeconds(5);
     }
